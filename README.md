@@ -2,7 +2,7 @@
 
 Challenge untuk UTS Kerjakan salah satu saja 100 :
 
-1. Tambahkan fitur untuk validasi input di tambah task. 
+1. Tambahkan fitur untuk validasi input di tambah task. <br>
     -Menambahkan File Validation , Mengubah tasklist , listpage , main
 2. Tambahkan fitur untuk disable button tambah task jika validasi input masih error.
     -Mengubah fitur OnPressed pada addtask
