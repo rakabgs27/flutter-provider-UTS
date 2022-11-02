@@ -80,7 +80,11 @@ class Tasklist with ChangeNotifier {
     notifyListeners();
   }
 
-  
+  Future<void> editTask(Task task, String before ) async {
+    await _databaseService.editTask(task, before);
+    notifyListeners();
+  }
+
   Future<void> deleteTask(Task task) async {
     print("Delete Task ${task.name}");
     await _databaseService.deleteTask(task.name);

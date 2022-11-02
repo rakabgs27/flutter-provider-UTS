@@ -135,11 +135,15 @@ class DatabaseService {
   //   final db = await _databaseService.database;
   //   await db.delete('dogs', where: 'id = ?', whereArgs: [id]);
   // }
-
-  Future<int> updateTask(String name) async {
+  Future<void> editTask(Task task, String before) async {
+  try{
     final db = await _databaseService.database;
-    final data = {'name': "name", 'status': 2};
-    return db.update('task', data, where: "name = $name");
+      int count = await db.update('task' , task.toMap(),
+      where: 'name = ?', whereArgs: [before]);
+      print('count : ${count}');
+  } catch (e) {
+      print(e.toString());
+  }
   }
 
   Future<void> deleteTask(String name) async {
