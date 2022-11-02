@@ -34,10 +34,13 @@ class _EditTaskPageState extends State<EditTaskPage> {
           children: [
             TextFormField(
               controller: controller,
-              decoration: const InputDecoration(
+              decoration:  InputDecoration(
                 hintText: "Masukkan Task Baru",
+                errorText: context.watch<Tasklist>().taskName.error,
               ),
-              onChanged: (value) {},
+              onChanged: (value) {
+                 context.read<Tasklist>().onTaskNameChange(value);
+              },
             ),
             const SizedBox(
               height: 50,
@@ -45,19 +48,26 @@ class _EditTaskPageState extends State<EditTaskPage> {
             Row(
               children: [
                 Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
+                  child: ElevatedButton( 
+                     onPressed: context.watch<Tasklist>().isActive? () 
+                     {
                       final model = Task.fromMap({
                         'name': controller?.text,
                         'status': 0,
                       });
                       context
                           .read<Tasklist>()
+                          .setTaskName(controller?.text);
+                      if (context.read<Tasklist>().isValidated()) {
+                          context
+                          .read<Tasklist>()
                           .editTask(model, widget.model!.name)
                           .then((value) {
-                        Navigator.pop(context, true);
-                      });
-                    },
+                         Navigator.pop(context, true);
+                        });
+                      }  
+                    }
+                    : null,
                     child: const Text("Edit Task"),
                   ),
                 ),
