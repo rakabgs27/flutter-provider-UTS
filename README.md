@@ -5,7 +5,7 @@ Challenge untuk UTS Kerjakan salah satu saja 100 :
 Pengerjaan Untuk Mendapat Nilai +15
 
 1. Tambahkan fitur untuk validasi input di tambah task. <br>
-    -Menambahkan File Validation , Mengubah tasklist , listpage , main <br>
+    -Menambahkan File Validation , Mengubah tasklist , addtask , main <br>
     -Hasil <br> 
     ![Screenshot (455)](https://user-images.githubusercontent.com/95867776/199448995-760f4d92-24fc-401d-a91d-684ac82c9aff.png) <br>
 
